@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Owner login — Connie's Cake Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main">
+        <a class="logo" href="index.html">Connie's Cake Shop</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="order.html">Customer order</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a class="btn btn-ghost" href="index.html">View site</a>
+          <a class="btn btn-primary" href="owner.html" aria-current="page">Owner</a>
+        </div>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-label="Open menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="page-owner">
+      <div class="container owner-inner">
+        <section id="owner-login" class="owner-login" data-owner-login>
+          <p class="eyebrow owner-eyebrow">Staff only</p>
+          <h1>Owner login</h1>
+          <p class="owner-lede">Enter the owner password to view customer orders.</p>
+          <form id="owner-login-form" class="owner-login-form" action="#" method="post">
+            <label>
+              Password
+              <input
+                type="password"
+                name="password"
+                id="owner-password"
+                autocomplete="current-password"
+                required
+              />
+            </label>
+            <p class="owner-login-error" id="owner-login-error" hidden></p>
+            <button type="submit" class="btn btn-primary btn-lg" id="owner-login-submit">
+              Log in
+            </button>
+          </form>
+        </section>
+
+        <div id="owner-dashboard" class="owner-dashboard" data-owner-dashboard hidden>
+          <header class="owner-page-header">
+            <p class="eyebrow owner-eyebrow">Shop dashboard</p>
+            <h1>Customer orders</h1>
+            <p class="owner-lede">
+              New orders from customers show up here after they tap <strong>Place order</strong>.
+            </p>
+            <div class="owner-toolbar">
+              <button type="button" class="btn btn-ghost" id="owner-refresh">Refresh</button>
+              <button type="button" class="btn btn-ghost owner-danger" id="owner-clear-all">
+                Clear all orders
+              </button>
+              <button type="button" class="btn btn-ghost" id="owner-logout">Log out</button>
+              <a class="btn btn-primary" href="order.html">Open customer order page</a>
+            </div>
+          </header>
+
+          <p class="owner-hint muted" id="owner-storage-hint" hidden></p>
+
+          <div id="owner-empty" class="owner-empty">
+            <p>No orders yet.</p>
+            <p class="muted">When a customer submits an order on the order page, it will appear here.</p>
+          </div>
+
+          <div id="owner-orders-list" class="owner-orders-list" data-owner-list></div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p><strong>Connie's Cake Shop</strong> — Shop view (staff only).</p>
+        <p class="muted">© <span data-year></span> Connie's Cake Shop. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="script.js"></script>
+    <script src="owner.js"></script>
+  </body>
+</html>

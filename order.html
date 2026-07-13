@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order pastries — Connie's Cake Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main">
+        <a class="logo" href="index.html">Connie's Cake Shop</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#menu">Menu</a></li>
+          <li><a href="index.html#about">About</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a class="btn btn-ghost" href="owner.html">Owner</a>
+          <a class="btn btn-primary" href="order.html" aria-current="page">Orders</a>
+        </div>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+          aria-label="Open menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="page-order">
+      <div class="container order-page-inner">
+        <header class="order-page-header">
+          <p class="eyebrow order-eyebrow">Menu order</p>
+          <h1>Choose your items</h1>
+          <p class="order-lede">
+            Pick cakes or finger foods from our menu, select a flavor or pack type, and set how many
+            you would like.
+          </p>
+        </header>
+
+        <form id="pastry-order-form" class="pastry-order-form" action="#" method="post" novalidate>
+          <div class="order-layout">
+            <div class="order-builder">
+              <h2 class="order-builder-title">Your items</h2>
+              <div id="order-lines" class="order-lines" data-order-lines></div>
+
+              <button type="button" class="btn btn-ghost add-pastry-btn" id="add-pastry-line">
+                + Add another item
+              </button>
+
+              <label class="order-notes-label">
+                Special requests (optional)
+                <textarea
+                  name="notes"
+                  rows="3"
+                  placeholder="Allergies, pickup time, gift message…"
+                  class="order-notes"
+                ></textarea>
+              </label>
+            </div>
+
+            <aside class="order-summary-card" aria-labelledby="summary-heading">
+              <h2 id="summary-heading" class="order-summary-title">Order summary</h2>
+              <ul id="order-summary-list" class="order-summary-list" data-summary-list></ul>
+              <p class="order-summary-empty" data-summary-empty>No items yet — add pastries above.</p>
+              <div class="order-summary-total" data-summary-total-wrap hidden>
+                <span>Estimated total</span>
+                <strong data-summary-total>K0</strong>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg order-submit" id="submit-order">
+                Place order
+              </button>
+              <p class="order-footnote">
+                When you place an order, a notification email is sent to the shop.
+                Staff can also view orders on the <a href="owner.html">owner board</a>.
+              </p>
+            </aside>
+          </div>
+        </form>
+
+        <div
+          class="order-toast"
+          id="order-toast"
+          role="status"
+          aria-live="polite"
+          hidden
+          data-order-toast
+        ></div>
+      </div>
+    </main>
+
+    <template id="order-line-template">
+      <div class="order-line" data-order-line>
+        <div class="order-line-fields">
+          <label class="order-field">
+            Item
+            <select class="order-pastry" name="pastry" required></select>
+          </label>
+          <label class="order-field">
+            Flavor
+            <select class="order-flavor" name="flavor" required></select>
+          </label>
+          <label class="order-field order-field-qty">
+            Quantity
+            <input class="order-qty" type="number" name="quantity" min="1" max="99" value="1" required />
+          </label>
+        </div>
+      </div>
+    </template>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p><strong>Connie's Cake Shop</strong> — Couture cakes, refined celebrations.</p>
+        <p class="muted">© <span data-year></span> Connie's Cake Shop. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="order.js"></script>
+  </body>
+</html>
